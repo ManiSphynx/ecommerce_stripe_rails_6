@@ -5,7 +5,8 @@ p 'Creating Articles'
   Article.create(
     title: Faker::Book.title,
     body: Faker::Lorem.paragraphs(number: 8).join("\n"),
-    private: Faker::Boolean.boolean
+    private: Faker::Boolean.boolean,
+    price: [300, 500, 800, 1000].sample
   )
 end
 
