@@ -1,4 +1,4 @@
-# Finance app 📈
+# Ecommerce App 🛒
 this is a project with rails 6 and ruby 3 that demonstrates my skills implementing a payment gateway like stripe in a basic but fun level.
 
 ### Requirements 💻
