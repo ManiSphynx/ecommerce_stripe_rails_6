@@ -5,7 +5,7 @@ class OrderItemsController < ApplicationController
     order_item = current_order.order_items.new(article_id: order_item_params)
 
     if order_item.save
-      redirect_to root_path, notice: 'Article added to cart'
+      redirect_to current_order, notice: 'Article added to cart'
     else
       redirect_to articles_path(id: order_item_params), alert: 'Article was not added to cart'
     end
