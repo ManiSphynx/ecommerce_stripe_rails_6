@@ -30,6 +30,7 @@
       >
       <span class="text-xl font-semibold text-blueGrey-800">$ <%= @order.order_items.map { |item| item.article.price }.sum / 100.to_f %></span>
     </div>
-    <%= link_to "Pagar", checkout_index_path(order_id: @order), method: :post, class: "self-end bg-vividGreen-500 text-vividGreen-50 py-3 px-8" %>
+   <!-- %= link_to "Pagar", checkout_index_path(order_id: @order), method: :post, class: "self-end bg-vividGreen-500 text-vividGreen-50 py-3 px-8" %> -->
+   <%= link_to 'Pagar', order_checkout_path(@order), class: "self-end bg-vividGreen-500 text-vividGreen-50 py-3 px-8" %>
   </div>
 </div>
