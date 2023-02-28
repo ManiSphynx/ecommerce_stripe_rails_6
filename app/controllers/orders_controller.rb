@@ -12,6 +12,19 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def checkout
+    order = Order.find(params[:order_id])
+
+    return redirect_to order_path(order) unless order.articles
+
+    @intent = Stripe::PaymentIntent.create({
+                                             amount: order.total,
+                                             currency: 'usd'
+                                           })
+
+    order.update(stripe_payment_id: @intent.id)
+  end
+
   private
 
   def set_last_articles
