@@ -7,8 +7,13 @@ class Order < ApplicationRecord
   # Callbacks
   after_save :add_articles_to_user, if: :paid_order?
 
+  # Methods
+  def total
+    articles.pluck(:price).sum
+  end
+
   def paid_order?
-    status == 'paid'
+    status == 'succeeded'
   end
 
   def add_articles_to_user
